@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var originField: UILabel!
@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var originText: UITextField!
     @IBOutlet weak var priceText: UITextField!
+    @IBOutlet weak var imageField: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,5 +35,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
         originField.text = originText.text
         priceField.text = priceText.text
     }
+    @IBAction func updateImage(_ sender: UITapGestureRecognizer) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+    }
+    imageField.image = selectedImage
+        dismiss(animated: true, completion: nil)
 }
 
+}

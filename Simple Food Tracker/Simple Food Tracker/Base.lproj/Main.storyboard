@@ -100,8 +100,15 @@
                                     <constraint firstItem="Rp0-AR-Esh" firstAttribute="width" secondItem="eev-k5-1lH" secondAttribute="width" id="n3v-GF-ggP"/>
                                 </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jIg-KX-rG6">
-                                <rect key="frame" x="20" y="284" width="335" height="128"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="335" placeholderIntrinsicHeight="168" image="Default" translatesAutoresizingMaskIntoConstraints="NO" id="jIg-KX-rG6">
+                                <rect key="frame" x="20" y="288" width="335" height="168"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Thk-uc-LI9"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="doe-Zc-AVq" appends="YES" id="j58-gW-whg"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -120,6 +127,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="imageField" destination="jIg-KX-rG6" id="fX5-XM-PzO"/>
                         <outlet property="nameField" destination="tvX-kf-0Uu" id="cCa-0w-pxY"/>
                         <outlet property="nameText" destination="WKn-3Z-sdY" id="jKj-7k-Zud"/>
                         <outlet property="originField" destination="WXl-eO-2Kr" id="kEd-YF-iXS"/>
@@ -129,8 +137,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="doe-Zc-AVq">
+                    <connections>
+                        <action selector="updateImage:" destination="BYZ-38-t0r" id="Kv9-bL-ZYO"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="72.799999999999997" y="32.833583208395808"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Default" width="900" height="450"/>
+    </resources>
 </document>
