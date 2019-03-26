@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Simple Food Tracker
+//  TaxiApp
 //
-//  Created by Jing Wei Nicholas Lim on 3/25/19.
+//  Created by Jing Wei Nicholas Lim on 3/26/19.
 //  Copyright © 2019 Jing Wei Nicholas Lim. All rights reserved.
 //
 

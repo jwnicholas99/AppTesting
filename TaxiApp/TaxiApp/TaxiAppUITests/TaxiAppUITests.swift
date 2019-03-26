@@ -1,14 +1,14 @@
 //
-//  Simple_Food_TrackerUITests.swift
-//  Simple Food TrackerUITests
+//  TaxiAppUITests.swift
+//  TaxiAppUITests
 //
-//  Created by Jing Wei Nicholas Lim on 3/25/19.
+//  Created by Jing Wei Nicholas Lim on 3/26/19.
 //  Copyright © 2019 Jing Wei Nicholas Lim. All rights reserved.
 //
 
 import XCTest
 
-class Simple_Food_TrackerUITests: XCTestCase {
+class TaxiAppUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
