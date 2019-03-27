@@ -10,10 +10,16 @@ import UIKit
 import os.log
 
 class driver: NSObject, NSCoding {
+   
+    //properties
     var photo : UIImage?
     var name : String
     var destination : String
     var rating : Int
+    
+    //archiving paths
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("drivers")
     
     struct PropertyKey {
         static let name = "name"

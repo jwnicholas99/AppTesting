@@ -23,7 +23,14 @@ class driverTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         navigationItem.leftBarButtonItem = editButtonItem
         
-        loadSamples()
+        // Load any saved drivers, otherwise load sample data.
+        if let savedDrivers = loadDrivers() {
+            drivers += savedDrivers
+        }
+        else {
+            // Load the sample data.
+            loadSamples()
+        }
     }
 
     // MARK: - Table view data source
@@ -68,10 +75,11 @@ class driverTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             drivers.remove(at: indexPath.row)
+            saveDrivers()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     
 
@@ -132,6 +140,7 @@ class driverTableViewController: UITableViewController {
                 drivers.append(driveR)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+            saveDrivers()
         }
     }
     
@@ -141,5 +150,18 @@ class driverTableViewController: UITableViewController {
             fatalError("Unable to instantiate driver1")
         }
         drivers += [driver1]
+    }
+    
+    private func saveDrivers() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(drivers, toFile: driver.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Drivers successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save drivers...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadDrivers() -> [driver]?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: driver.ArchiveURL.path) as? [driver]
     }
 }
