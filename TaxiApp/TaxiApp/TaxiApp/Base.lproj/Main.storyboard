@@ -47,7 +47,7 @@
                                     <outlet property="imageField" destination="YyD-9D-vQX" id="Hfl-f5-h6e"/>
                                     <outlet property="nameField" destination="hGN-W8-LAC" id="DKP-Ao-z2N"/>
                                     <outlet property="ratingControls" destination="gra-MS-9cI" id="4Lz-e3-45O"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="showDetail" id="fsm-tB-871"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="fsm-tB-871"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -153,7 +153,7 @@
                     <navigationItem key="navigationItem" title="New Driver" id="g7W-dc-Arm">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="qMc-iT-k69">
                             <connections>
-                                <action selector="cancelButton:" destination="BYZ-38-t0r" id="VaW-Qf-0gW"/>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="ymd-3v-D7m"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="u1b-H7-HIC">

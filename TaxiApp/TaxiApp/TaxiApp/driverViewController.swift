@@ -37,11 +37,29 @@ class driverViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if let driveR = driveR {
+            nameField.text = driveR.name
+            driverPic.image = driveR.photo
+            ratingControls.ratingNo = driveR.rating
+            destinationField.text = driveR.destination
+        }
     }
     
     
-    @IBAction func cancelButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddDriverMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddDriverMode {
+            dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The driverViewController is not inside a navigation controller.")
+        }
     }
     
     @IBAction func pickPhoto(_ sender: UITapGestureRecognizer){

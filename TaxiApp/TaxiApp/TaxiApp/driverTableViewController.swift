@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class driverTableViewController: UITableViewController {
     
@@ -20,6 +21,7 @@ class driverTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        navigationItem.leftBarButtonItem = editButtonItem
         
         loadSamples()
     }
@@ -52,25 +54,26 @@ class driverTableViewController: UITableViewController {
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            drivers.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -87,21 +90,48 @@ class driverTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender : sender)
+        switch (segue.identifier ?? ""){
+        case "addDriver" :
+            os_log("Adding a new driver", log: OSLog.default, type: .debug)
+        case "showDetail" :
+            guard let driverDetailViewController = segue.destination as? driverViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedDriverCell = sender as? driverTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedDriverCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedDriver = drivers[indexPath.row]
+            driverDetailViewController.driveR = selectedDriver
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
-    */
+    
     
     @IBAction func unwindToDriverList(sender: UIStoryboardSegue){
-        if let sourceViewController = sender.source as? driverViewController, let driveR = sourceViewController.driveR {
-            let newIndexPath = IndexPath(row: drivers.count, section: 0)
-            drivers.append(driveR)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+           if let sourceViewController = sender.source as? driverViewController, let driveR = sourceViewController.driveR {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow{
+                drivers[selectedIndexPath.row] = driveR
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }
+            else {
+                let newIndexPath = IndexPath(row: drivers.count, section: 0)
+                drivers.append(driveR)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
     }
     
