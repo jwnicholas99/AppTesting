@@ -12,6 +12,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet weak var driverPic: UIImageView!
     @IBOutlet weak var ratingControls: ratings!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var destinationField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -34,6 +38,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         driverPic.image = selectedImage
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func update(_ sender: UIButton) {
+        let driver = Driver(photo: driverPic.image, name: nameField.text!, destination: destinationField.text!, rating: ratingControls.ratingNo)
     }
 }
 
