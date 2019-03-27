@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l4H-oI-0MG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xxE-Zj-XCb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Driver Table View Controller-->
+        <!--Your Drivers-->
         <scene sceneID="NEd-I9-gjw">
             <objects>
                 <tableViewController id="l4H-oI-0MG" customClass="driverTableViewController" customModule="TaxiApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,6 +47,7 @@
                                     <outlet property="imageField" destination="YyD-9D-vQX" id="Hfl-f5-h6e"/>
                                     <outlet property="nameField" destination="hGN-W8-LAC" id="DKP-Ao-z2N"/>
                                     <outlet property="ratingControls" destination="gra-MS-9cI" id="4Lz-e3-45O"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="showDetail" id="fsm-tB-871"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -55,12 +56,19 @@
                             <outlet property="delegate" destination="l4H-oI-0MG" id="Nnr-LC-aUN"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Your Drivers" id="G9J-wf-3hU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5qf-ip-ZGb">
+                            <connections>
+                                <segue destination="lZA-TW-735" kind="presentation" identifier="addDriver" id="7hB-CS-WZo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3i3-72-tXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-596" y="32.833583208395808"/>
+            <point key="canvasLocation" x="343.19999999999999" y="32.833583208395808"/>
         </scene>
-        <!--Driver View Controller-->
+        <!--New Driver-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="driverViewController" customModule="TaxiApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,7 +77,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Sc-EO-Jqy">
-                                <rect key="frame" x="16" y="49" width="343" height="100"/>
+                                <rect key="frame" x="16" y="93" width="343" height="100"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Y8f-ly-utt">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -108,12 +116,8 @@
                                     <constraint firstItem="Y8f-ly-utt" firstAttribute="top" secondItem="9Sc-EO-Jqy" secondAttribute="top" id="vDY-26-I1T"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ifa-4I-xXJ" customClass="ratings" customModule="TaxiApp">
-                                <rect key="frame" x="16" y="262" width="254" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="R6T-jB-IwH">
-                                <rect key="frame" x="16" y="173" width="343" height="64.5"/>
+                                <rect key="frame" x="16" y="217" width="343" height="64.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaR-zm-WUO">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
@@ -129,21 +133,16 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLk-Fq-rnu">
-                                <rect key="frame" x="295" y="613" width="60" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Update"/>
-                                <connections>
-                                    <action selector="update:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lh5-z8-WEE"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ifa-4I-xXJ" customClass="ratings" customModule="TaxiApp">
+                                <rect key="frame" x="16" y="297" width="252" height="44"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hLk-Fq-rnu" secondAttribute="trailing" constant="20" id="83u-H0-Jkg"/>
+                            <constraint firstItem="Ifa-4I-xXJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="H9P-h2-StB"/>
                             <constraint firstItem="R6T-jB-IwH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Kgc-8d-w1e"/>
                             <constraint firstItem="9Sc-EO-Jqy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Sfe-1d-MdJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hLk-Fq-rnu" secondAttribute="bottom" constant="20" id="W1z-JQ-aQ5"/>
+                            <constraint firstItem="Ifa-4I-xXJ" firstAttribute="top" secondItem="R6T-jB-IwH" secondAttribute="bottom" constant="15.5" id="c3M-V2-dJP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Sc-EO-Jqy" secondAttribute="trailing" constant="16" id="cDe-Gs-fQL"/>
                             <constraint firstItem="R6T-jB-IwH" firstAttribute="top" secondItem="9Sc-EO-Jqy" secondAttribute="bottom" constant="24" id="hF7-JT-OdF"/>
                             <constraint firstItem="9Sc-EO-Jqy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="29" id="qRw-JM-rjN"/>
@@ -151,24 +150,78 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Driver" id="g7W-dc-Arm">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="qMc-iT-k69">
+                            <connections>
+                                <action selector="cancelButton:" destination="BYZ-38-t0r" id="VaW-Qf-0gW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="u1b-H7-HIC">
+                            <connections>
+                                <action selector="saveButton:" destination="BYZ-38-t0r" id="KGk-dM-E1d"/>
+                                <segue destination="aVq-zN-Nte" kind="unwind" unwindAction="unwindToDriverListWithSender:" id="RrS-LI-Dz9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="destinationField" destination="erW-qw-lFb" id="fow-oY-XXF"/>
                         <outlet property="driverPic" destination="Y8f-ly-utt" id="FX1-TS-Onq"/>
                         <outlet property="nameField" destination="MzF-rp-2oC" id="7z0-od-w1o"/>
                         <outlet property="ratingControls" destination="Ifa-4I-xXJ" id="jG6-yA-K7W"/>
+                        <outlet property="saveButton" destination="u1b-H7-HIC" id="p3V-8h-DCl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="aVq-zN-Nte" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="2Yp-Vt-nwf">
                     <connections>
                         <action selector="pickPhoto:" destination="BYZ-38-t0r" id="Daz-pr-L4j"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="69.599999999999994" y="32.833583208395808"/>
+            <point key="canvasLocation" x="1948" y="32.833583208395808"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OVI-B2-vSZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xxE-Zj-XCb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vM2-XX-74q">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="l4H-oI-0MG" kind="relationship" relationship="rootViewController" id="QA9-kZ-oWg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K9r-4S-XAQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-596" y="32.833583208395808"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Pth-kp-3ha">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lZA-TW-735" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="L3w-do-Dsg">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fJM-s4-1Cx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wcw-H8-xSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1153" y="423"/>
         </scene>
     </scenes>
     <resources>
         <image name="Image" width="1080" height="1080"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fsm-tB-871"/>
+    </inferredMetricsTieBreakers>
 </document>

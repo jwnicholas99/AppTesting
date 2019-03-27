@@ -96,6 +96,15 @@ class driverTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindToDriverList(sender: UIStoryboardSegue){
+        if let sourceViewController = sender.source as? driverViewController, let driveR = sourceViewController.driveR {
+            let newIndexPath = IndexPath(row: drivers.count, section: 0)
+            drivers.append(driveR)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
     private func loadSamples(){
         let photo1 = UIImage(named : "Driver1")
         guard let driver1 = driver(photo: photo1, name: "Nicholas Lim", destination: "UConn", rating: 5) else {
