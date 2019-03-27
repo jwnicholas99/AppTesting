@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,94 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TaxiApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Sc-EO-Jqy">
+                                <rect key="frame" x="16" y="49" width="343" height="100"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Y8f-ly-utt">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="jcz-iu-HbL"/>
+                                            <constraint firstAttribute="width" constant="100" id="n3m-dI-XWL"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="2Yp-Vt-nwf" appends="YES" id="92m-V2-iMl"/>
+                                        </connections>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ya-02-9x9">
+                                        <rect key="frame" x="120" y="18" width="55" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MzF-rp-2oC">
+                                        <rect key="frame" x="120" y="52" width="203" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="MzF-rp-2oC" firstAttribute="leading" secondItem="Y8f-ly-utt" secondAttribute="trailing" constant="20" id="DY7-Fz-f8a"/>
+                                    <constraint firstItem="9Ya-02-9x9" firstAttribute="top" secondItem="9Sc-EO-Jqy" secondAttribute="top" constant="18" id="ID1-zc-uAj"/>
+                                    <constraint firstAttribute="bottom" secondItem="MzF-rp-2oC" secondAttribute="bottom" constant="18" id="PpU-Ov-UCN"/>
+                                    <constraint firstAttribute="trailing" secondItem="MzF-rp-2oC" secondAttribute="trailing" constant="20" id="Thp-Io-zJe"/>
+                                    <constraint firstItem="MzF-rp-2oC" firstAttribute="top" secondItem="9Ya-02-9x9" secondAttribute="bottom" constant="13" id="X7F-R5-TJP"/>
+                                    <constraint firstAttribute="bottom" secondItem="Y8f-ly-utt" secondAttribute="bottom" id="iet-HS-g2q"/>
+                                    <constraint firstItem="Y8f-ly-utt" firstAttribute="leading" secondItem="9Sc-EO-Jqy" secondAttribute="leading" id="lns-Sb-9JR"/>
+                                    <constraint firstItem="9Ya-02-9x9" firstAttribute="leading" secondItem="Y8f-ly-utt" secondAttribute="trailing" constant="20" id="rML-vA-OP9"/>
+                                    <constraint firstItem="Y8f-ly-utt" firstAttribute="top" secondItem="9Sc-EO-Jqy" secondAttribute="top" id="vDY-26-I1T"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="erW-qw-lFb">
+                                <rect key="frame" x="16" y="208" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifa-4I-xXJ" customClass="ratings">
+                                <rect key="frame" x="16" y="259" width="200" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaR-zm-WUO">
+                                <rect key="frame" x="16" y="173" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gaR-zm-WUO" firstAttribute="top" secondItem="9Sc-EO-Jqy" secondAttribute="bottom" constant="44" id="B4S-Oi-PNi"/>
+                            <constraint firstItem="9Sc-EO-Jqy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Sfe-1d-MdJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Sc-EO-Jqy" secondAttribute="trailing" constant="16" id="cDe-Gs-fQL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gaR-zm-WUO" secondAttribute="trailing" symbolic="YES" id="cr9-5f-tgt"/>
+                            <constraint firstItem="9Sc-EO-Jqy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="29" id="qRw-JM-rjN"/>
+                            <constraint firstItem="gaR-zm-WUO" firstAttribute="leading" secondItem="9Sc-EO-Jqy" secondAttribute="leading" id="zRp-3P-6MO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="driverPic" destination="Y8f-ly-utt" id="FX1-TS-Onq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="2Yp-Vt-nwf">
+                    <connections>
+                        <action selector="pickPhoto:" destination="BYZ-38-t0r" id="Daz-pr-L4j"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image" width="1080" height="1080"/>
+    </resources>
 </document>

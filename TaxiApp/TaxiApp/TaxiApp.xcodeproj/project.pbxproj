@@ -14,6 +14,7 @@
 		8AEED4B5224ABDE900403F14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AEED4B3224ABDE900403F14 /* LaunchScreen.storyboard */; };
 		8AEED4C0224ABDE900403F14 /* TaxiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEED4BF224ABDE900403F14 /* TaxiAppTests.swift */; };
 		8AEED4CB224ABDE900403F14 /* TaxiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEED4CA224ABDE900403F14 /* TaxiAppUITests.swift */; };
+		8AEED4D9224AF5E300403F14 /* ratings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEED4D8224AF5E300403F14 /* ratings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		8AEED4C6224ABDE900403F14 /* TaxiAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaxiAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEED4CA224ABDE900403F14 /* TaxiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiAppUITests.swift; sourceTree = "<group>"; };
 		8AEED4CC224ABDE900403F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AEED4D8224AF5E300403F14 /* ratings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ratings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				8AEED4B1224ABDE800403F14 /* Assets.xcassets */,
 				8AEED4B3224ABDE900403F14 /* LaunchScreen.storyboard */,
 				8AEED4B6224ABDE900403F14 /* Info.plist */,
+				8AEED4D8224AF5E300403F14 /* ratings.swift */,
 			);
 			path = TaxiApp;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AEED4D9224AF5E300403F14 /* ratings.swift in Sources */,
 				8AEED4AD224ABDE500403F14 /* ViewController.swift in Sources */,
 				8AEED4AB224ABDE500403F14 /* AppDelegate.swift in Sources */,
 			);
