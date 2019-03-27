@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Driver {
+class driver {
     var photo : UIImage?
     var name : String
     var destination : String

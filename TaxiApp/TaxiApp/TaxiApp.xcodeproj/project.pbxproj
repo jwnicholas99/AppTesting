@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		8AEED4AB224ABDE500403F14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEED4AA224ABDE500403F14 /* AppDelegate.swift */; };
-		8AEED4AD224ABDE500403F14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEED4AC224ABDE500403F14 /* ViewController.swift */; };
+		8AEED4AD224ABDE500403F14 /* driverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEED4AC224ABDE500403F14 /* driverViewController.swift */; };
 		8AEED4B0224ABDE500403F14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AEED4AE224ABDE500403F14 /* Main.storyboard */; };
 		8AEED4B2224ABDE800403F14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AEED4B1224ABDE800403F14 /* Assets.xcassets */; };
 		8AEED4B5224ABDE900403F14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AEED4B3224ABDE900403F14 /* LaunchScreen.storyboard */; };
 		8AEED4C0224ABDE900403F14 /* TaxiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEED4BF224ABDE900403F14 /* TaxiAppTests.swift */; };
 		8AEED4CB224ABDE900403F14 /* TaxiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEED4CA224ABDE900403F14 /* TaxiAppUITests.swift */; };
 		8AEED4D9224AF5E300403F14 /* ratings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEED4D8224AF5E300403F14 /* ratings.swift */; };
-		8AEED4DB224B3B0900403F14 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEED4DA224B3B0900403F14 /* Driver.swift */; };
+		8AEED4DB224B3B0900403F14 /* driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEED4DA224B3B0900403F14 /* driver.swift */; };
+		8AEED4DE224B41A600403F14 /* driverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEED4DD224B41A600403F14 /* driverTableViewCell.swift */; };
+		8AEED4E0224B452300403F14 /* driverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEED4DF224B452300403F14 /* driverTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,7 @@
 /* Begin PBXFileReference section */
 		8AEED4A7224ABDE500403F14 /* TaxiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEED4AA224ABDE500403F14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8AEED4AC224ABDE500403F14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8AEED4AC224ABDE500403F14 /* driverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = driverViewController.swift; sourceTree = "<group>"; };
 		8AEED4AF224ABDE500403F14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AEED4B1224ABDE800403F14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AEED4B4224ABDE900403F14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,7 +52,9 @@
 		8AEED4CA224ABDE900403F14 /* TaxiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiAppUITests.swift; sourceTree = "<group>"; };
 		8AEED4CC224ABDE900403F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AEED4D8224AF5E300403F14 /* ratings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ratings.swift; sourceTree = "<group>"; };
-		8AEED4DA224B3B0900403F14 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
+		8AEED4DA224B3B0900403F14 /* driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = driver.swift; sourceTree = "<group>"; };
+		8AEED4DD224B41A600403F14 /* driverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = driverTableViewCell.swift; sourceTree = "<group>"; };
+		8AEED4DF224B452300403F14 /* driverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = driverTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,13 +106,15 @@
 			isa = PBXGroup;
 			children = (
 				8AEED4AA224ABDE500403F14 /* AppDelegate.swift */,
-				8AEED4AC224ABDE500403F14 /* ViewController.swift */,
+				8AEED4AC224ABDE500403F14 /* driverViewController.swift */,
 				8AEED4AE224ABDE500403F14 /* Main.storyboard */,
+				8AEED4DF224B452300403F14 /* driverTableViewController.swift */,
 				8AEED4B1224ABDE800403F14 /* Assets.xcassets */,
 				8AEED4B3224ABDE900403F14 /* LaunchScreen.storyboard */,
 				8AEED4B6224ABDE900403F14 /* Info.plist */,
 				8AEED4D8224AF5E300403F14 /* ratings.swift */,
-				8AEED4DA224B3B0900403F14 /* Driver.swift */,
+				8AEED4DA224B3B0900403F14 /* driver.swift */,
+				8AEED4DD224B41A600403F14 /* driverTableViewCell.swift */,
 			);
 			path = TaxiApp;
 			sourceTree = "<group>";
@@ -263,9 +269,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AEED4D9224AF5E300403F14 /* ratings.swift in Sources */,
-				8AEED4AD224ABDE500403F14 /* ViewController.swift in Sources */,
+				8AEED4DE224B41A600403F14 /* driverTableViewCell.swift in Sources */,
+				8AEED4AD224ABDE500403F14 /* driverViewController.swift in Sources */,
 				8AEED4AB224ABDE500403F14 /* AppDelegate.swift in Sources */,
-				8AEED4DB224B3B0900403F14 /* Driver.swift in Sources */,
+				8AEED4DB224B3B0900403F14 /* driver.swift in Sources */,
+				8AEED4E0224B452300403F14 /* driverTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

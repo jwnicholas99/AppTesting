@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class driverViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var driverPic: UIImageView!
     @IBOutlet weak var ratingControls: ratings!
@@ -42,7 +42,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBAction func update(_ sender: UIButton) {
-        let driver = Driver(photo: driverPic.image, name: nameField.text!, destination: destinationField.text!, rating: ratingControls.ratingNo)
+        let driver1 = driver(photo: driverPic.image, name: nameField.text!, destination: destinationField.text!, rating: ratingControls.ratingNo)
     }
 }
 
